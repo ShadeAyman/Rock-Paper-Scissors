@@ -16,14 +16,14 @@ function getComputerChoice () { //function to return a random word(rock paper sc
         return "SCISSORS" ;
     }
 }
-let reset =()=>{humanScore =0 ;computerScore=0;} 
+let reset =()=>{humanScore =0 ;computerScore=0;}
 
 
 
 
-function playRound(TEST , computerInbut = getComputerChoice()) {
+function playRound(playerInbut , computerInbut = getComputerChoice()) {
 
-    userinut = TEST.toUpperCase();
+    userinut = playerInbut.toUpperCase();
 
     if (userinut == computerInbut) {
         return "Draw";
