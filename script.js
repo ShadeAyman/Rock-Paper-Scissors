@@ -3,21 +3,17 @@ let humanScore=0;
 let computerScore=0;
 let round=0;
 
-const pcchoice = document.querySelector('.pcchoice');
-
 function getComputerChoice () { //function to return a random word(rock paper scissors)
     let min = 1;
     let max = 3;
     let rando = Math.floor(Math.random() * (max - min + 1)) + min;
     if (rando ==1 ) {
+        
         return "ROCK";        
     }
     if (rando == 2) {
-
         return "PAPER";
     } else {
-        pcchoice.appendChild('img');
-
         return "SCISSORS" ;
     }
 }
