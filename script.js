@@ -60,7 +60,6 @@ function update()
     computer.textContent=computerchice;
     pcchoice.toggleAttribute('pcchoice')
     pcchoice.toggleAttribute('pcchoice')
-
     pcchoice.removeChild(imgrock)
     pcchoice.removeChild(imgpapper)
     pcchoice.removeChild(imgscissors)
@@ -136,7 +135,7 @@ Paper.addEventListener('click',()=> playRound("paper"));
 Scissors.addEventListener('click',()=> playRound("scissors"));
 
 
-humanScore.addEventListener(humanScore==5,()=>{human.textContent='victory'; reset();})
+// humanScore.addEventListener(humanScore==5,()=>{human.textContent='victory'; reset();})
 
 // const playerSelection = prompt("Enter ROCK PAPER or SCISSORS") ;
 // const computerSelection = getComputerChoice();
@@ -161,3 +160,5 @@ first to 5 wins win
 show victory/death screen
 
  */
+
+
