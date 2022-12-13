@@ -41,8 +41,6 @@ body {
     padding: 100px;
     flex-grow: 1;
     flex-wrap: wrap;
-
-
 }
 
 
@@ -135,6 +133,9 @@ button:hover
 }
 .pcchoice
 {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
     width: 100px;
-    height: 100px;
+    height: 110px;
 }
