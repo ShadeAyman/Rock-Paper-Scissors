@@ -1,6 +1,8 @@
 * {
     color: #CFD4DE;
     font-weight: bold;
+    font-family: RubikVinyl;
+
 }
 @font-face { font-family: RubikVinyl; src: url('RubikVinyl-Regular.ttf'); } 
 
@@ -14,13 +16,13 @@ body {
     background-color: #323948;
     justify-content: center;   
     flex-wrap: wrap;
-    font-family: RubikVinyl;
 }
 button {
     background-color: transparent;
     border-radius: 20px;
     border-color: #171A21;
     border-width: 4px;
+
 }
 img {
     width: 100px;
