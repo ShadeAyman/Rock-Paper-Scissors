@@ -1,6 +1,9 @@
 * {
     color: #CFD4DE;
+    font-weight: bold;
 }
+@font-face { font-family: RubikVinyl; src: url('RubikVinyl-Regular.ttf'); } 
+
 /* ------ginaric tags----- */
 body {
     margin: 0;
@@ -11,7 +14,7 @@ body {
     background-color: #323948;
     justify-content: center;   
     flex-wrap: wrap;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: RubikVinyl;
 }
 button {
     background-color: transparent;
@@ -23,7 +26,6 @@ img {
     width: 100px;
     height: 100px;
     color: #CFD4DE;
-
 }
 /* ---------------- */
 
@@ -53,7 +55,6 @@ img {
     flex-wrap: wrap;
     min-height: 60vh;
     box-sizing: border-box;
-
 }
 /* -----playe/computer side---- */
 .player
@@ -161,38 +162,15 @@ button:hover
 
 .overlay
 {
-    position:absolute;
     display: flex;
-    background-color: #171A21;
-    width: 100%;
-    height:150%;
-    top: 0;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-style: italic;
-    font-size: 24px;
-    flex-shrink: 0;
 }
-.Victory
+.Victory,.Defeat
+{
+    display: none;
+}
+.Victory,.Defeat,.overlay
 {
     position:absolute;
-    display: none;
-    background-color: #171A21;
-    width: 100%;
-    height:150%;
-    top: 0;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-style: italic;
-    font-size: 24px;
-    flex-shrink: 0;
-}
-.Defeat
-{
-    position:absolute;
-    display: none;
     background-color: #171A21;
     width: 100%;
     height:150%;
