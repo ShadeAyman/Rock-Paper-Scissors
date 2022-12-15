@@ -1,12 +1,9 @@
 //stats
-let humanScore=0;
-let computerScore=0;
-let round=0;
-let playerchice="";
-let computerchice="";
-
-
-
+let humanScore = 0;
+let computerScore = 0;
+let round = 0;
+let playerchice = "";
+let computerchice = "";
 //selectors
 const hScore = document.querySelector('.humanScore');
 const cScore = document.querySelector('.computerScore');
@@ -14,173 +11,127 @@ const reseting = document.querySelector('.reset');
 const Rock = document.querySelector('.rock');
 const Paper = document.querySelector('.paper');
 const Scissors = document.querySelector('.scissors')
-const pcchoice= document.querySelector('.pcchoice')
+const pcchoice = document.querySelector('.pcchoice')
 const human = document.querySelector('.human');
 const computer = document.querySelector('.computer');
 const pcImgChoice = document.createElement('img')
-
-pcchoice.appendChild(pcImgChoice);
-pcImgChoice.src='./imgs/rock.png';//place holder till the playround function start
-
-
-//functions
-function getComputerChoice () { //function to return a random word(rock paper scissors)
-    let min = 1;
-    let max = 3;
-    let rando = Math.floor(Math.random() * (max - min + 1)) + min;
-    if (rando ==1 ) {
-        return "ROCK";        
-    }
-    if (rando == 2) {
-
-        return "PAPER";
-    } else {
-        return "SCISSORS" ;
-    }
-}
-
-let reset =()=>{ //the reset button
-    humanScore =0 ;
-    computerScore=0;
-    playerchice="";
-    computerchice="";
-    update();
-}
-function update()
-{
-    hScore.textContent = humanScore;
-    cScore.textContent= computerScore;
-    human.textContent=playerchice;
-    computer.textContent=computerchice;
-}
 const overlay = document.querySelector('.overlay');
 const overlayStart = document.querySelector('.start');
 const Victoryscreen = document.querySelector('.Victory');
 const Defeatscreen = document.querySelector('.Defeat');
-const playagain =   document.querySelector('.playagain');
-const playagain2 =   document.querySelector('.playagain2');
+const playagain = document.querySelector('.playagain');
+const playagain2 = document.querySelector('.playagain2');
 
-overlayStart.addEventListener('click',()=>{overlay.style.display = "none";})
-
-playagain.addEventListener('click',()=>{Victoryscreen.style.display = "none";})
-
-playagain2.addEventListener('click',()=>{Defeatscreen.style.display = "none";})
+pcchoice.appendChild(pcImgChoice);
+pcImgChoice.src = './imgs/rock.png';//place holder till the playround function start
 
 
-function playRound(playerInbut , computerInbut = getComputerChoice()) {//starts the game
-
+//-----functions----//
+function getComputerChoice() { //function to return a random word(rock paper scissors)
+    let min = 1;
+    let max = 3;
+    let rando = Math.floor(Math.random() * (max - min + 1)) + min;
+    if (rando == 1) {
+        return "ROCK";
+    }
+    if (rando == 2) {
+        return "PAPER";
+    } else {
+        return "SCISSORS";
+    }
+}
+let reset = () => { //the reset button
+    humanScore = 0;
+    computerScore = 0;
+    playerchice = "";
+    computerchice = "";
+    update();
+}
+function update() {
+    hScore.textContent = humanScore;
+    cScore.textContent = computerScore;
+    human.textContent = playerchice;
+    computer.textContent = computerchice;
+}
+function playRound(playerInbut, computerInbut = getComputerChoice()) {//starts the game
     userinut = playerInbut.toUpperCase();
-
     if (userinut == computerInbut) {
         playerchice = userinut;
-        computerchice=computerInbut;
+        computerchice = computerInbut;
         update();
-        if (userinut=="ROCK") {
-            pcImgChoice.src='./imgs/rock.png';
+        if (userinut == "ROCK") {
+            pcImgChoice.src = './imgs/rock.png';
         }
-        if (userinut=="PAPER") {
-            pcImgChoice.src='./imgs/mail.png';
+        if (userinut == "PAPER") {
+            pcImgChoice.src = './imgs/mail.png';
 
         } else {
-            pcImgChoice.src='./imgs/cut.png';
-
+            pcImgChoice.src = './imgs/cut.png';
         }
-        
     }
-    
-    if(userinut == "PAPER" & computerInbut == "ROCK")
-    {
+    if (userinut == "PAPER" & computerInbut == "ROCK") {
         humanScore++;
         playerchice = userinut;
-        computerchice=computerInbut;
+        computerchice = computerInbut;
         update();
-        pcImgChoice.src='./imgs/rock.png';
+        pcImgChoice.src = './imgs/rock.png';
     }
-    if(userinut == "PAPER" & computerInbut == "SCISSORS")
-    {
+    if (userinut == "PAPER" & computerInbut == "SCISSORS") {
         computerScore++;
         playerchice = userinut;
-        computerchice=computerInbut;
-        
+        computerchice = computerInbut;
         update();
-        pcImgChoice.src='./imgs/cut.png';
+        pcImgChoice.src = './imgs/cut.png';
+    }
 
-    }  
-
-    if(userinut == "ROCK" & computerInbut == "SCISSORS")
-    {
+    if (userinut == "ROCK" & computerInbut == "SCISSORS") {
         humanScore++;
         playerchice = userinut;
-        computerchice=computerInbut;
+        computerchice = computerInbut;
         update();
-        pcImgChoice.src='./imgs/cut.png';
-
+        pcImgChoice.src = './imgs/cut.png';
     }
-    if(userinut == "ROCK" & computerInbut == "PAPER")
-    {
+    if (userinut == "ROCK" & computerInbut == "PAPER") {
         computerScore++;
         playerchice = userinut;
-        computerchice=computerInbut;
+        computerchice = computerInbut;
         update();
-        pcImgChoice.src='./imgs/mail.png';
-
+        pcImgChoice.src = './imgs/mail.png';
     }
-
- 
-    if(userinut == "SCISSORS" & computerInbut == "PAPER")
-    {
+    if (userinut == "SCISSORS" & computerInbut == "PAPER") {
         humanScore++;
         playerchice = userinut;
-        computerchice=computerInbut;
+        computerchice = computerInbut;
         update();
-        pcImgChoice.src='./imgs/mail.png';
-
-    }   
-    if(userinut == "SCISSORS" & computerInbut == "ROCK")
-    {
+        pcImgChoice.src = './imgs/mail.png';
+    }
+    if (userinut == "SCISSORS" & computerInbut == "ROCK") {
         computerScore++;
         playerchice = userinut;
-        computerchice=computerInbut;
+        computerchice = computerInbut;
         update();
-        pcImgChoice.src='./imgs/rock.png';
+        pcImgChoice.src = './imgs/rock.png';
     }
-whowon();
+    whowon();
 }
-
-
-function whowon()
+function whowon() //to display the victory screen//
 {
-    if(humanScore==5)
-    {
-        Victoryscreen.style.display ='flex';
+    if (humanScore == 5) {
+        Victoryscreen.style.display = 'flex';
         reset()
     }
 
-    if(computerScore==5)
-    {
-        Defeatscreen.style.display ='flex';
+    if (computerScore == 5) {
+        Defeatscreen.style.display = 'flex';
         reset()
     }
 }
 
 //events
-reseting.addEventListener('click',reset);
-Rock.addEventListener('click',()=> playRound("ROCK"));
-Paper.addEventListener('click',()=> playRound("paper"));
-Scissors.addEventListener('click',()=> playRound("scissors"));
-
-
-
-// function game (){
-// for (let i = 0; i < 5; i++) {
-//     const playerSelection = prompt("Enter ROCK PAPER or SCISSORS") ;//take user inbut
-//     const computerSelection = getComputerChoice();//calls the computer function 
-//     console.log(playRound(playerSelection)) //starts the game py calling the playround function 
-// }
-// console.log(`YOU won ${humanScore} games out of 5`)
-// reset(); //to reset the schoor
-// }
-
-
-
-
+reseting.addEventListener('click', reset);
+Rock.addEventListener('click', () => playRound("ROCK"));
+Paper.addEventListener('click', () => playRound("paper"));
+Scissors.addEventListener('click', () => playRound("scissors"));
+overlayStart.addEventListener('click', () => { overlay.style.display = "none"; })
+playagain.addEventListener('click', () => { Victoryscreen.style.display = "none"; })
+playagain2.addEventListener('click', () => { Defeatscreen.style.display = "none"; })
