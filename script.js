@@ -5,12 +5,9 @@ let round=0;
 let playerchice="";
 let computerchice="";
 
-// const imgrock = document.createElement('img')
-// const imgpapper = document.createElement('img')
-// const imgscissors = document.createElement('img')
-// imgrock.src='./imgs/rock.png';
-// imgpapper.src='./imgs/mail.png';
-// imgscissors.src='./imgs/cut.png';
+const pcImgChoice = document.createElement('img')
+pcImgChoice.classList.add('icon');
+
 
 //selectors
 const hScore = document.querySelector('.humanScore');
@@ -23,6 +20,7 @@ const pcchoice= document.querySelector('.pcchoice')
 const human = document.querySelector('.human');
 const computer = document.querySelector('.computer');
 
+pcchoice.appendChild(pcImgChoice);
 
 
 //functions
@@ -31,18 +29,14 @@ function getComputerChoice () { //function to return a random word(rock paper sc
     let max = 3;
     let rando = Math.floor(Math.random() * (max - min + 1)) + min;
     if (rando ==1 ) {
-        // pcchoice.appendChild(imgrock);
         return "ROCK";        
     }
     if (rando == 2) {
-        // pcchoice.appendChild(imgpapper);
 
         return "PAPER";
     } else {
-        // pcchoice.appendChild(imgscissors);
         return "SCISSORS" ;
     }
-
 }
 
 let reset =()=>{ //the reset button
@@ -58,12 +52,9 @@ function update()
     cScore.textContent= computerScore;
     human.textContent=playerchice;
     computer.textContent=computerchice;
-    pcchoice.toggleAttribute('pcchoice')
-    pcchoice.toggleAttribute('pcchoice')
-    pcchoice.removeChild(imgrock)
-    pcchoice.removeChild(imgpapper)
-    pcchoice.removeChild(imgscissors)
 }
+pcImgChoice.src='./imgs/rock.png';
+
 
 
 function playRound(playerInbut , computerInbut = getComputerChoice()) {//starts the game
@@ -74,6 +65,17 @@ function playRound(playerInbut , computerInbut = getComputerChoice()) {//starts 
         playerchice = userinut;
         computerchice=computerInbut;
         update();
+        if (userinut=="ROCK") {
+            pcImgChoice.src='./imgs/rock.png';
+        }
+        if (userinut=="PAPER") {
+            pcImgChoice.src='./imgs/mail.png';
+
+        } else {
+            pcImgChoice.src='./imgs/cut.png';
+
+        }
+        
     }
     
     if(userinut == "PAPER" & computerInbut == "ROCK")
@@ -81,8 +83,8 @@ function playRound(playerInbut , computerInbut = getComputerChoice()) {//starts 
         humanScore++;
         playerchice = userinut;
         computerchice=computerInbut;
-        
         update();
+        pcImgChoice.src='./imgs/rock.png';
     }
     if(userinut == "PAPER" & computerInbut == "SCISSORS")
     {
@@ -91,6 +93,7 @@ function playRound(playerInbut , computerInbut = getComputerChoice()) {//starts 
         computerchice=computerInbut;
         
         update();
+        pcImgChoice.src='./imgs/cut.png';
 
     }  
 
@@ -100,6 +103,8 @@ function playRound(playerInbut , computerInbut = getComputerChoice()) {//starts 
         playerchice = userinut;
         computerchice=computerInbut;
         update();
+        pcImgChoice.src='./imgs/cut.png';
+
     }
     if(userinut == "ROCK" & computerInbut == "PAPER")
     {
@@ -107,6 +112,8 @@ function playRound(playerInbut , computerInbut = getComputerChoice()) {//starts 
         playerchice = userinut;
         computerchice=computerInbut;
         update();
+        pcImgChoice.src='./imgs/mail.png';
+
     }
 
  
@@ -116,6 +123,8 @@ function playRound(playerInbut , computerInbut = getComputerChoice()) {//starts 
         playerchice = userinut;
         computerchice=computerInbut;
         update();
+        pcImgChoice.src='./imgs/mail.png';
+
     }   
     if(userinut == "SCISSORS" & computerInbut == "ROCK")
     {
@@ -123,6 +132,7 @@ function playRound(playerInbut , computerInbut = getComputerChoice()) {//starts 
         playerchice = userinut;
         computerchice=computerInbut;
         update();
+        pcImgChoice.src='./imgs/rock.png';
     }
     else{
         return  "enter a proper value";
@@ -154,11 +164,8 @@ Scissors.addEventListener('click',()=> playRound("scissors"));
 
 /*
 starts with a play() screen
-
 first to 5 wins win
-
 show victory/death screen
-
  */
 
 
