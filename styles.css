@@ -1,12 +1,7 @@
 * {
     color: #CFD4DE;
 }
-
-.colors {
-    color: #171A21;
-    color: #323948;
-    color: #CFD4DE;
-}
+/* ------ginaric tags----- */
 body {
     margin: 0;
     padding: 0;
@@ -18,6 +13,19 @@ body {
     flex-wrap: wrap;
     font-family: 'Courier New', Courier, monospace;
 }
+button {
+    background-color: transparent;
+    border-radius: 20px;
+    border-color: #171A21;
+    border-width: 4px;
+}
+img {
+    width: 100px;
+    height: 100px;
+    color: #CFD4DE;
+
+}
+/* ---------------- */
 
 /* header */
 .header {
@@ -25,15 +33,17 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #171A21;
-    flex-grow: 1;
-    height: 10vh;
+
+    min-height: 10vh;
     padding: 20px;
     font-size: 30px;
     font-weight: 900;
-}
+    box-sizing: border-box;
 
+}
 /* body */
 .body {
+    position: relative;
     display: flex;
     justify-content: center;
     gap: 100px;
@@ -41,40 +51,50 @@ body {
     padding: 100px;
     flex-grow: 1;
     flex-wrap: wrap;
-}
-
-
-img {
-    width: 100px;
-    height: 100px;
-        color: #CFD4DE;
+    min-height: 60vh;
+    box-sizing: border-box;
 
 }
-
+/* -----playe/computer side---- */
+.player
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
 .icons {
     padding: 20px;
     display: flex;
     gap: 20px;
     border: solid;
     border-radius: 20px;
-border-color: #171A21;
-flex-wrap: wrap;
-justify-content: center;
-align-items: center;
+    border-color: #171A21;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
 }
 
-button {
+.pcchoice
+{
     background-color: transparent;
     border-radius: 20px;
     border-color: #171A21;
     border-width: 4px;
 }
+/* -----playe/computer side---- */
+
+/* -----score and reset------ */
 .scReset
 {
     display: flex;
     align-self: center;
-    margin-bottom: 40px;
-    margin-top: -50px;
+    min-height: 10vh ;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+
 }
 .score
 {
@@ -87,6 +107,7 @@ button {
     justify-content: center;
     align-items: center;
     height: 10px;
+
 }
 
 .reset{
@@ -100,42 +121,101 @@ button {
     align-items: center;
     height: 10px;
     margin-left: 40px;
+
     }
-.player
-{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+/* -----score and reset------ */
 .VOR
 {
 display: flex;
 justify-content: center;
 align-items: center;
-gap: 70px;}
+gap: 70px;
+min-height: 10vh;
+box-sizing: border-box;
+
+}
 
 /* fotter */
 .footer {
     display: flex;
+
     background-color: #171A21;
     justify-content: center;
     align-items: center;
-    height: 5vh;
+    flex-shrink: 1;
+    flex-grow: 1;
+    min-height: 10vh;
     padding: 10px;
     font-style: italic;
     font-weight: 700;
     font-size: 15px;
+    box-sizing: border-box;
+
 }
 
 button:hover
 {
     border-color: #CFD4DE;
 }
-.pcchoice
+
+
+.overlay
+{
+    position:absolute;
+    display: flex;
+    background-color: #171A21;
+    width: 100%;
+    height:150%;
+    top: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+.Victory
+{
+    position:absolute;
+    display: none;
+    background-color: #171A21;
+    width: 100%;
+    height:150%;
+    top: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+.Defeat
+{
+    position:absolute;
+    display: none;
+    background-color: #171A21;
+    width: 100%;
+    height:150%;
+    top: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+.start
 {
     display: flex;
-    flex-grow: 1;
-    flex-shrink: 1;
-    width: 100px;
-    height: 110px;
+    justify-content: center;
+    padding: 20px;
+    width: 200px;
+    height: 100px;
+    border-color: #323948;
+    text-align: center;
+    font-weight: bold;
+    font-size: 35px;
+    align-items: center;
+    box-sizing: border-box;
+
 }

@@ -5,8 +5,6 @@ let round=0;
 let playerchice="";
 let computerchice="";
 
-const pcImgChoice = document.createElement('img')
-pcImgChoice.classList.add('icon');
 
 
 //selectors
@@ -19,8 +17,10 @@ const Scissors = document.querySelector('.scissors')
 const pcchoice= document.querySelector('.pcchoice')
 const human = document.querySelector('.human');
 const computer = document.querySelector('.computer');
+const pcImgChoice = document.createElement('img')
 
 pcchoice.appendChild(pcImgChoice);
+pcImgChoice.src='./imgs/rock.png';//place holder till the playround function start
 
 
 //functions
@@ -53,8 +53,18 @@ function update()
     human.textContent=playerchice;
     computer.textContent=computerchice;
 }
-pcImgChoice.src='./imgs/rock.png';
+const overlay = document.querySelector('.overlay');
+const overlayStart = document.querySelector('.start');
+const Victoryscreen = document.querySelector('.Victory');
+const Defeatscreen = document.querySelector('.Defeat');
+const playagain =   document.querySelector('.playagain');
+const playagain2 =   document.querySelector('.playagain2');
 
+overlayStart.addEventListener('click',()=>{overlay.style.display = "none";})
+
+playagain.addEventListener('click',()=>{Victoryscreen.style.display = "none";})
+
+playagain2.addEventListener('click',()=>{Defeatscreen.style.display = "none";})
 
 
 function playRound(playerInbut , computerInbut = getComputerChoice()) {//starts the game
@@ -134,10 +144,25 @@ function playRound(playerInbut , computerInbut = getComputerChoice()) {//starts 
         update();
         pcImgChoice.src='./imgs/rock.png';
     }
-    else{
-        return  "enter a proper value";
+whowon();
+}
+
+
+function whowon()
+{
+    if(humanScore==5)
+    {
+        Victoryscreen.style.display ='flex';
+        reset()
+    }
+
+    if(computerScore==5)
+    {
+        Defeatscreen.style.display ='flex';
+        reset()
     }
 }
+
 //events
 reseting.addEventListener('click',reset);
 Rock.addEventListener('click',()=> playRound("ROCK"));
@@ -145,11 +170,6 @@ Paper.addEventListener('click',()=> playRound("paper"));
 Scissors.addEventListener('click',()=> playRound("scissors"));
 
 
-// humanScore.addEventListener(humanScore==5,()=>{human.textContent='victory'; reset();})
-
-// const playerSelection = prompt("Enter ROCK PAPER or SCISSORS") ;
-// const computerSelection = getComputerChoice();
-// console.log(playRound(playerSelection))
 
 // function game (){
 // for (let i = 0; i < 5; i++) {
@@ -162,10 +182,5 @@ Scissors.addEventListener('click',()=> playRound("scissors"));
 // }
 
 
-/*
-starts with a play() screen
-first to 5 wins win
-show victory/death screen
- */
 
 
