@@ -4,4 +4,4 @@ an app that usess html,css,and javascript exploring DOM Manipulation And Events<
 the project is an assinment from the <a href="https://www.theodinproject.com/">odin project curriculum</a>.
 <br>
 <br>
-<a href="https://opla-d.github.io/Rock-Paper-Scissors/"> (Live Preview)</a>
+<a href="https://ShadeAyman.github.io/Rock-Paper-Scissors/"> (Live Preview)</a>
