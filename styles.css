@@ -2,9 +2,12 @@
     color: #CFD4DE;
     font-weight: bold;
     font-family: RubikVinyl;
-
 }
-@font-face { font-family: RubikVinyl; src: url('RubikVinyl-Regular.ttf'); } 
+
+@font-face {
+    font-family: RubikVinyl;
+    src: url('RubikVinyl-Regular.ttf');
+}
 
 /* ------ginaric tags----- */
 body {
@@ -14,20 +17,23 @@ body {
     flex-direction: column;
     min-height: 100vh;
     background-color: #323948;
-    justify-content: center;   
+    justify-content: center;
     flex-wrap: wrap;
 }
+
 button {
     background-color: transparent;
     border-radius: 20px;
     border-color: #171A21;
     border-width: 4px;
 }
+
 img {
     width: 100px;
     height: 100px;
     color: #CFD4DE;
 }
+
 /* ---------------- */
 
 /* header */
@@ -42,8 +48,8 @@ img {
     font-size: 30px;
     font-weight: 900;
     box-sizing: border-box;
-
 }
+
 /* body */
 .body {
     position: relative;
@@ -57,14 +63,15 @@ img {
     min-height: 60vh;
     box-sizing: border-box;
 }
+
 /* -----playe/computer side---- */
-.player
-{
+.player {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-items: center;
 }
+
 .icons {
     padding: 20px;
     display: flex;
@@ -75,31 +82,28 @@ img {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    
 }
 
-.pcchoice
-{
+.pcchoice {
     background-color: transparent;
     border-radius: 20px;
     border-color: #171A21;
     border-width: 4px;
 }
+
 /* -----playe/computer side---- */
 
 /* -----score and reset------ */
-.scReset
-{
+.scReset {
     display: flex;
     align-self: center;
-    min-height: 10vh ;
+    min-height: 10vh;
     box-sizing: border-box;
     justify-content: center;
     align-items: center;
-
 }
-.score
-{
+
+.score {
     background-color: #171A21;
     border: solid #CFD4DE;
     display: flex;
@@ -109,10 +113,9 @@ img {
     justify-content: center;
     align-items: center;
     height: 10px;
-
 }
 
-.reset{
+.reset {
     background-color: #CFD4DE;
     color: #171A21;
     display: flex;
@@ -123,24 +126,21 @@ img {
     align-items: center;
     height: 10px;
     margin-left: 40px;
+}
 
-    }
 /* -----score and reset------ */
-.VOR
-{
-display: flex;
-justify-content: center;
-align-items: center;
-gap: 70px;
-min-height: 10vh;
-box-sizing: border-box;
-
+.VOR {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    min-height: 10vh;
+    box-sizing: border-box;
 }
 
 /* fotter */
 .footer {
     display: flex;
-
     background-color: #171A21;
     justify-content: center;
     align-items: center;
@@ -152,29 +152,28 @@ box-sizing: border-box;
     font-weight: 700;
     font-size: 15px;
     box-sizing: border-box;
-
 }
 
-button:hover
-{
+button:hover {
     border-color: #CFD4DE;
 }
 
-
-.overlay
-{
+.overlay {
     display: flex;
 }
-.Victory,.Defeat
-{
+
+.Victory,
+.Defeat {
     display: none;
 }
-.Victory,.Defeat,.overlay
-{
-    position:absolute;
+
+.Victory,
+.Defeat,
+.overlay {
+    position: absolute;
     background-color: #171A21;
     width: 100%;
-    height:150%;
+    height: 150%;
     top: 0;
     flex-direction: column;
     justify-content: center;
@@ -183,8 +182,8 @@ button:hover
     font-size: 24px;
     flex-shrink: 0;
 }
-.start
-{
+
+.start {
     display: flex;
     justify-content: center;
     padding: 20px;
@@ -196,5 +195,4 @@ button:hover
     font-size: 35px;
     align-items: center;
     box-sizing: border-box;
-
 }

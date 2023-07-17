@@ -30,7 +30,7 @@ pcImgChoice.src = './imgs/rock.png';//place holder till the playround function s
 function getComputerChoice() { //function to return a random word(rock paper scissors)
     let min = 1;
     let max = 3;
-    let rando = Math.floor(Math.random() * (max - min + 1)) + min;
+    let rando = Math.floor(Math.random() * (max - min + 1)) + min; //formula from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#getting_a_random_number_between_two_values
     if (rando == 1) {
         return "ROCK";
     }
@@ -47,13 +47,13 @@ let reset = () => { //the reset button
     computerchice = "";
     update();
 }
-function update() {
+function update() {// to update the ui
     hScore.textContent = humanScore;
     cScore.textContent = computerScore;
     human.textContent = playerchice;
     computer.textContent = computerchice;
 }
-function playRound(playerInbut, computerInbut = getComputerChoice()) {//starts the game
+function playRound(playerInbut, computerInbut = getComputerChoice()) {//starts the game(core game logic)
     userinut = playerInbut.toUpperCase();
     if (userinut == computerInbut) {
         playerchice = userinut;
@@ -114,7 +114,7 @@ function playRound(playerInbut, computerInbut = getComputerChoice()) {//starts t
     }
     whowon();
 }
-function whowon() //to display the victory screen//
+function whowon() //to display the victory /defeat screen//
 {
     if (humanScore == 5) {
         Victoryscreen.style.display = 'flex';
