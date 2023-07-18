@@ -2,8 +2,8 @@
 let humanScore = 0;
 let computerScore = 0;
 let round = 0;
-let playerchice = "";
-let computerchice = "";
+let playerChoice = "";
+let computerChoice = "";
 //selectors
 const hScore = document.querySelector('.humanScore');
 const cScore = document.querySelector('.computerScore');
@@ -21,7 +21,6 @@ const Victoryscreen = document.querySelector('.Victory');
 const Defeatscreen = document.querySelector('.Defeat');
 const playagain = document.querySelector('.playagain');
 const playagain2 = document.querySelector('.playagain2');
-
 pcchoice.appendChild(pcImgChoice);
 pcImgChoice.src = './imgs/rock.png';//place holder till the playround function start
 
@@ -43,75 +42,57 @@ function getComputerChoice() { //function to return a random word(rock paper sci
 let reset = () => { //the reset button
     humanScore = 0;
     computerScore = 0;
-    playerchice = "";
-    computerchice = "";
+    playerChoice = "";
+    computerChoice = "";
     update();
 }
 function update() {// to update the ui
     hScore.textContent = humanScore;
     cScore.textContent = computerScore;
-    human.textContent = playerchice;
-    computer.textContent = computerchice;
+    human.textContent = playerChoice;
+    computer.textContent = computerChoice;
 }
-function playRound(playerInbut, computerInbut = getComputerChoice()) {//starts the game(core game logic)
-    userinut = playerInbut.toUpperCase();
-    if (userinut == computerInbut) {
-        playerchice = userinut;
-        computerchice = computerInbut;
-        update();
-        if (userinut == "ROCK") {
+function playRound(playerInput, computerInput = getComputerChoice()) {//starts the game(core game logic)
+    if (playerInput == computerInput) {
+        playerChoice = playerInput;
+        computerChoice = computerInput;
+        if (playerInput == "ROCK") {
             pcImgChoice.src = './imgs/rock.png';
         }
-        if (userinut == "PAPER") {
+        if (playerInput == "PAPER") {
             pcImgChoice.src = './imgs/mail.png';
-
-        } else {
+        }
+        else {
             pcImgChoice.src = './imgs/cut.png';
         }
     }
-    if (userinut == "PAPER" & computerInbut == "ROCK") {
+    if (playerInput == "PAPER" & computerInput == "ROCK") {
         humanScore++;
-        playerchice = userinut;
-        computerchice = computerInbut;
-        update();
         pcImgChoice.src = './imgs/rock.png';
     }
-    if (userinut == "PAPER" & computerInbut == "SCISSORS") {
-        computerScore++;
-        playerchice = userinut;
-        computerchice = computerInbut;
-        update();
+    if (playerInput == "ROCK" & computerInput == "SCISSORS") {
+        humanScore++;
         pcImgChoice.src = './imgs/cut.png';
     }
-
-    if (userinut == "ROCK" & computerInbut == "SCISSORS") {
+    if (playerInput == "SCISSORS" & computerInput == "PAPER") {
         humanScore++;
-        playerchice = userinut;
-        computerchice = computerInbut;
-        update();
+        pcImgChoice.src = './imgs/mail.png';
+    }
+    if (playerInput == "PAPER" & computerInput == "SCISSORS") {
+        computerScore++;
         pcImgChoice.src = './imgs/cut.png';
     }
-    if (userinut == "ROCK" & computerInbut == "PAPER") {
+    if (playerInput == "ROCK" & computerInput == "PAPER") {
         computerScore++;
-        playerchice = userinut;
-        computerchice = computerInbut;
-        update();
         pcImgChoice.src = './imgs/mail.png';
     }
-    if (userinut == "SCISSORS" & computerInbut == "PAPER") {
-        humanScore++;
-        playerchice = userinut;
-        computerchice = computerInbut;
-        update();
-        pcImgChoice.src = './imgs/mail.png';
-    }
-    if (userinut == "SCISSORS" & computerInbut == "ROCK") {
+    if (playerInput == "SCISSORS" & computerInput == "ROCK") {
         computerScore++;
-        playerchice = userinut;
-        computerchice = computerInbut;
-        update();
         pcImgChoice.src = './imgs/rock.png';
     }
+    playerChoice = playerInput;
+    computerChoice = computerInput;
+    update();
     whowon();
 }
 function whowon() //to display the victory /defeat screen//
@@ -130,8 +111,8 @@ function whowon() //to display the victory /defeat screen//
 //events
 reseting.addEventListener('click', reset);
 Rock.addEventListener('click', () => playRound("ROCK"));
-Paper.addEventListener('click', () => playRound("paper"));
-Scissors.addEventListener('click', () => playRound("scissors"));
+Paper.addEventListener('click', () => playRound("PAPER"));
+Scissors.addEventListener('click', () => playRound("SCISSORS"));
 overlayStart.addEventListener('click', () => { overlay.style.display = "none"; })
 playagain.addEventListener('click', () => { Victoryscreen.style.display = "none"; })
 playagain2.addEventListener('click', () => { Defeatscreen.style.display = "none"; })
