@@ -26,19 +26,12 @@ pcImgChoice.src = './imgs/rock.png';//place holder till the playround function s
 
 
 //-----functions----//
-function getComputerChoice() { //function to return a random word(rock paper scissors)
-    let min = 1;
-    let max = 3;
-    let rando = Math.floor(Math.random() * (max - min + 1)) + min; //formula from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#getting_a_random_number_between_two_values
-    if (rando == 1) {
-        return "ROCK";
-    }
-    if (rando == 2) {
-        return "PAPER";
-    } else {
-        return "SCISSORS";
-    }
+function getComputerChoice() {
+    const choices = ["ROCK", "PAPER", "SCISSORS"];
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    return choices[randomIndex];
 }
+
 let reset = () => { //the reset button
     humanScore = 0;
     computerScore = 0;
@@ -52,43 +45,26 @@ function update() {// to update the ui
     human.textContent = playerChoice;
     computer.textContent = computerChoice;
 }
-function playRound(playerInput, computerInput = getComputerChoice()) {//starts the game(core game logic)
-    if (playerInput == computerInput) {
-        playerChoice = playerInput;
-        computerChoice = computerInput;
-        if (playerInput == "ROCK") {
-            pcImgChoice.src = './imgs/rock.png';
-        }
-        if (playerInput == "PAPER") {
-            pcImgChoice.src = './imgs/mail.png';
-        }
-        else {
-            pcImgChoice.src = './imgs/cut.png';
-        }
-    }
-    if (playerInput == "PAPER" & computerInput == "ROCK") {
-        humanScore++;
+function playRound(playerInput, computerInput = getComputerChoice()) {//(core game logic rock <paper < scissors<rock)
+
+    if (computerInput == "ROCK") {
         pcImgChoice.src = './imgs/rock.png';
     }
-    if (playerInput == "ROCK" & computerInput == "SCISSORS") {
-        humanScore++;
+    if (computerInput == "SCISSORS") {
         pcImgChoice.src = './imgs/cut.png';
     }
-    if (playerInput == "SCISSORS" & computerInput == "PAPER") {
+    if (computerInput == "PAPER") {
+        pcImgChoice.src = './imgs/mail.png';
+    }
+    if (playerInput == "PAPER" & computerInput == "ROCK" ||
+        playerInput == "ROCK" & computerInput == "SCISSORS" ||
+        playerInput == "SCISSORS" & computerInput == "PAPER") {
         humanScore++;
-        pcImgChoice.src = './imgs/mail.png';
     }
-    if (playerInput == "PAPER" & computerInput == "SCISSORS") {
+    if (playerInput == "PAPER" & computerInput == "SCISSORS" ||
+        playerInput == "ROCK" & computerInput == "PAPER" ||
+        playerInput == "SCISSORS" & computerInput == "ROCK") {
         computerScore++;
-        pcImgChoice.src = './imgs/cut.png';
-    }
-    if (playerInput == "ROCK" & computerInput == "PAPER") {
-        computerScore++;
-        pcImgChoice.src = './imgs/mail.png';
-    }
-    if (playerInput == "SCISSORS" & computerInput == "ROCK") {
-        computerScore++;
-        pcImgChoice.src = './imgs/rock.png';
     }
     playerChoice = playerInput;
     computerChoice = computerInput;
@@ -107,7 +83,6 @@ function whowon() //to display the victory /defeat screen//
         reset()
     }
 }
-
 //events
 reseting.addEventListener('click', reset);
 Rock.addEventListener('click', () => playRound("ROCK"));
