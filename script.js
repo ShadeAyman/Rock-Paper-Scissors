@@ -45,7 +45,7 @@ function update() {// to update the ui
     human.textContent = playerChoice;
     computer.textContent = computerChoice;
 }
-function playRound(playerInput, computerInput = getComputerChoice()) {//(core game logic rock <paper < scissors<rock)
+function playRound(playerInput, computerInput = getComputerChoice()) {//(core game logic rock<paper<scissors<rock)
 
     if (computerInput == "ROCK") {
         pcImgChoice.src = './imgs/rock.png';
